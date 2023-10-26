@@ -1,24 +1,26 @@
 ### chapter 2: Data Types in R and importing ###
 
-# 1. Vectors
+# 1. Vectors: data in a vector can only be of one type
 a <- c("k", "j", "h", "a", "c", "m")
 a[c(1, 3, 5)]
 
 
-# 2. Matrix: a two-dimensional array
+# 2. Matrix: a two-dimensional array, each element of one type
 x <- matrix(1:10, nrow=2)
 cells <- c(1, 26, 24, 68)
 rnames <- c("R1", "R2")
 cnames <- c("C1", "C2")
-
 y <- matrix(cells, nrow=2, ncol=2, byrow = TRUE, 
             dimnames=(list(rnames, cnames)))
 
 
-# 3. Array: multi-dimensional
+# 3. Array: multi-dimensional 'matrix' - myarray <- array(data in a vector, dimensions, dimnames)
+dim1 <- c("A1", "A2")
+dim2 <- c("B1", "B2", "B3")
+dim3 <- c("C1", "C2", "C3", "C4")
+z <- array(1:24, c(2, 3, 4), dimnames=list(dim1, dim2, dim3))
 
-
-# 4. DataFrame: multi-dimensional, multi-data-type components
+# 4. DataFrame: multi-dimensional, multi-data-type components, like a spreadsheet
 patientID <- c(1,2,3,4)
 View(x1)
 age<-c(25,34,28,52)
@@ -65,6 +67,9 @@ mtcars
 # 7. Some examples of inputting data
 setwd("D:/學習/R/R语言实战")
 grades <- read.table("studentgrade.csv", header=TURE, row.names="StudentID", sep=",")
+
+library(readr)
+grades <- read_csv("studentgrades.csv")
 
 install.packages("RODBC")
 library(RODBC)
