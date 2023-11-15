@@ -142,7 +142,7 @@ data_long <- gather(data_wide, key="Variable", value="Life_Exp",
 data_wide1 <- spread(data_long, key=Variable, value=Life_Exp)
 
 
-### 5. Aggregating data
+### 5. Aggregating data: summrize by certain columns
 # create 2 groups: by cylinders and gear
 aggdata1 <-aggregate(mtcars, 
                     by=list(mtcars$cyl,mtcars$gear), 
